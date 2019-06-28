@@ -7,6 +7,8 @@ const Book = require('../models/Books');
 
 
 router.get('/', (request, response) => {
+
+    console.log('[GET] Listando los libros de Books API');
     Book.find()
     .exec()
     .then(books => {
@@ -20,13 +22,14 @@ router.get('/', (request, response) => {
 })
 
 
-router.get('/:bookId', (request, response) => {
-    const bookId = request.params.bookId;
-    Book.findById(bookId)
+router.get('/:bookTitle', (request, response) => {
+    console.log('[GET] Obteniendo un libro de Books API')
+    const bookTitle = request.params.bookTitle;
+    Book.findOne({title: bookTitle})
         .exec()
-        .then(doc => {
-            console.log(doc);
-            response.status(200).json(doc)
+        .then(book => {
+            console.log(book);
+            response.status(200).json(book)
         })
         .catch(error => {
             console.log(error);
@@ -55,6 +58,7 @@ router.post('/', (request, response) => {
         })
         .catch(error => {
             console.log(error);
+            response.status(500).json({error: error})
         });
     
 });
