@@ -38,7 +38,7 @@ Para realizar una consulta [POST] es necesario enviar un JSON con el siguiente f
 
 ## Para ejecutar test unitarios
 
-Esta implementación, para realizar test unitarios utiliza *Mocha* y *Chai* y la forma correcta para ejecutar los test unitarios, es la siguiente:
+Esta implementación, para realizar test unitarios utiliza [*Mocha*](https://mochajs.org/) y [*Chai*](https://www.chaijs.com/) y la forma correcta para ejecutar los test unitarios, es la siguiente:
 
 ```bash
 npm run test
